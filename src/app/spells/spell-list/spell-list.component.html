@@ -1,3 +1,15 @@
 <p>
   spell-list works!
 </p>
+
+<div>
+  <h2>Hello {{name}}</h2>
+  <h5>Valid Users</h5>
+  <span *ngFor="let user of users">
+        {{user.firstName}}<br/>
+      </span> <br/> Invalid Users :
+  <span *ngFor="let user of users1">
+        {{user.firstName}}
+      </span> <br/>
+
+</div>
