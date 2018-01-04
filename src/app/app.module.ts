@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BredCrumbsComponent } from './navbar/bred-crumbs/bred-crumbs.component';
-import {SpellListComponent} from './spells/spell-list/spell-list.component';
-// import { SpellsModule } from './spells/spells.module';
+import { SpellsModule } from './spells/spells.module';
 
 
 
@@ -22,7 +21,7 @@ import {SpellListComponent} from './spells/spell-list/spell-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SpellListComponent,
+    SpellsModule,
     NgbModule.forRoot()
   ],
   providers: [],

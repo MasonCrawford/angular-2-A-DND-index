@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Spell} from '../model/spell.model';
 
 @Component({
   selector: 'app-spell',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spell.component.css']
 })
 export class SpellComponent implements OnInit {
+  @Input() spell: Spell;
 
   constructor() { }
 

@@ -10,7 +10,8 @@ import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class JsonService {
-    private _url = "src/data/spells.json";
+    // private _url = "";
+    private _url = "assets/data/Spells.json";
     constructor(private _http: Http) {
     }
     getSpells(): Observable<Spell[]> {

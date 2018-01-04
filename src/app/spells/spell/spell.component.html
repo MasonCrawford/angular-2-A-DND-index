@@ -1,3 +1,64 @@
-<p>
-  spell works!
-</p>
+<div class="card">
+  <ngb-tabset justify="fill">
+    <ngb-tab>
+      <ng-template ngbTabTitle>Details</ng-template>
+      <ng-template ngbTabContent>
+        <div class="card-body">
+          <h4 class="card-title">{{spell.name}}</h4>
+          <blockquote class="blockquote mb-0">
+            <footer class="blockquote-footer">{{spell.emote}}</footer>
+          </blockquote>
+          <p class="card-text">{{spell.description}}</p>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+
+    <ngb-tab>
+      <ng-template ngbTabTitle>Damage</ng-template>
+      <ng-template ngbTabContent>
+        <div class="card-body">
+          <h4 class="card-title">Damage</h4>
+
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Save</ng-template>
+      <ng-template ngbTabContent>
+        <div class="card-body">
+          <h4 class="card-title">Save</h4>
+
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Heal</ng-template>
+      <ng-template ngbTabContent>
+        <div class="card-body">
+          <h4 class="card-title">Heal</h4>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+  <div class="card-footer">
+    <!-- format and display level and school -->
+    <div [ngSwitch]="spell.level">
+      <small class="text-muted" *ngSwitchCase="0">{{spell.school}} cantrip</small>
+      <small class="text-muted" *ngSwitchCase="1">{{spell.level}}st level {{spell.school}} spell</small>
+      <small class="text-muted" *ngSwitchCase="2">{{spell.level}}nd level {{spell.school}} spell</small>
+      <small class="text-muted" *ngSwitchDefault>{{spell.level}}th level {{spell.school}} spell</small>
+    </div>
+    <!-- loop over classes and display them with the appropriate subclass requirements if needed -->
+    <div *ngFor="let class of spell.classes">
+      <div [ngSwitch]="class">
+        <small *ngSwitchCase="Cleric"> {{class}}  <small *ngFor="let domain of spell.domains">{{domain}}, </small></small>
+        <small *ngSwitchCase="Druid"> {{class}}   <small *ngFor="let circle of spell.circles">{{circle}}, </small></small>
+        <small *ngSwitchCase="Paladin"> {{class}} <small *ngFor="let oath of spell.oaths">{{oath}}, </small></small>
+        <small *ngSwitchCase="Warlock"> {{class}} <small *ngFor="let patron of spell.patrons">{{patron}}, </small></small>
+        <small *ngSwitchDefault>{{class}}</small>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
