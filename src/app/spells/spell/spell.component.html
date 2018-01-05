@@ -4,39 +4,107 @@
       <ng-template ngbTabTitle>Details</ng-template>
       <ng-template ngbTabContent>
         <div class="card-body">
-          <h4 class="card-title">{{spell.name}}</h4>
-          <blockquote class="blockquote mb-0">
+          <h4 class="card-title mb-0">{{spell.name}}</h4>
+          <blockquote class="blockquote">
             <footer class="blockquote-footer">{{spell.emote}}</footer>
           </blockquote>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th *ngIf="spell.range">Range</th>
+                <th *ngIf="spell.target">Target</th>
+                <th *ngIf="spell.aoe">Area of Effect</th>
+                <th *ngIf="spell.duration">Duration</th>
+                <th *ngIf="spell.castingTime">Casting Time</th>
+                <th *ngIf="spell.components" class="mb-0">Components</th>
+                <th>Ritual</th>
+                <th>Concentration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td *ngIf="spell.range"><small class="text-muted"> {{spell.range}}</small></td>
+                <td *ngIf="spell.target"><small class="text-muted"> {{spell.target}}</small></td>
+                <td *ngIf="spell.aoe"><small class="text-muted"> {{spell.aoe}}</small></td>
+                <td *ngIf="spell.duration"><small class="text-muted"> {{spell.duration}}</small></td>
+                <td *ngIf="spell.castingTime"><small class="text-muted"> {{spell.castingTime}}</small></td>
+                <td class="py-0" *ngIf="spell.components">
+                  <!-- <div class="table-responsive pt-0"> -->
+                  <table class="table  tabel-sm ">
+                    <!-- <caption class="py-0"><small>{{spell.components.materialMaterial}} {{spell.components.materialCost}}</small></caption> -->
+                    <thead>
+                      <tr>
+                        <th class="py-0"><small class="text-muted">V</small></th>
+                        <th class="py-0"><small class="text-muted">S</small></th>
+                        <th class="py-0"><small class="text-muted">M</small></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="py-0"><small class="text-muted">{{spell.components.verbal}}</small></td>
+                        <td class="py-0"><small class="text-muted">{{spell.components.somatic}}</small></td>
+                        <td class="py-0"><small class="text-muted">{{spell.components.material}}</small></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- </div> -->
+                </td>
+                <td [ngSwitch]="spell.ritual">
+                  <small *ngSwitchCase="true" class="text-muted"> Yes</small>
+                  <small *ngSwitchDefault class="text-muted"> No</small>
+                </td>
+                <td [ngSwitch]="spell.concentration">
+                  <small *ngSwitchCase="true" class="text-muted"> Yes</small>
+                  <small *ngSwitchDefault class="text-muted"> No</small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <p class="card-text">{{spell.description}}</p>
+          <p class="card-text">{{spell.effects}}</p>
+
         </div>
       </ng-template>
     </ngb-tab>
 
 
-    <ngb-tab>
+    <ngb-tab *ngIf="spell.damage">
       <ng-template ngbTabTitle>Damage</ng-template>
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Damage</h4>
-
+          <p class="card-text">
+            {{spell.damage.damage}} {{spell.damage.damageType}} {{spell.damage.higherLevelDice}} {{spell.damage.higherLevelDie}} {{spell.damage.castingStat}} {{spell.damage.secondaryDamage}} {{spell.damage.secondaryDamageType}} {{spell.damage.damageBonus}}
+          </p>
+          <p class="card-text">
+            {{spell.attack.type}} {{spell.attack.damage}} {{spell.attack.damageType}} {{spell.attack.higherLevelDice}} {{spell.attack.higherLevelDie}} {{spell.attack.secondaryDamage}} {{spell.attack.secondaryDamageType}} {{spell.attack.higherLevelSecondaryDice}}
+            {{spell.attack.higherLevelSecondaryDie}} {{spell.attack.castingStat}}
+          </p>
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab>
+
+    <ngb-tab *ngIf="spell.save">
       <ng-template ngbTabTitle>Save</ng-template>
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Save</h4>
-
+          <p class="card-text">
+            {{spell.save.ability}} {{spell.save.damage}} {{spell.save.damageType}} {{spell.save.saveSuccess}} {{spell.save.higherLevelDice}} {{spell.save.higherLevelDie}} {{spell.save.saveFailure}} {{spell.save.secondaryDamage}} {{spell.save.secondaryDamageType}}
+            {{spell.save.damageBonus}} {{spell.save.condition}}
+          </p>
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab>
+
+    <ngb-tab *ngIf="spell.heal">
       <ng-template ngbTabTitle>Heal</ng-template>
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Heal</h4>
+          <p class="card-text">
+            {{spell.heal.amount}} {{spell.heal.castingStat}} {{spell.heal.higherLevelDice}} {{spell.heal.higherLevelDie}} {{spell.heal.higherLevelAmount}} {{spell.heal.bonus}}
+          </p>
         </div>
       </ng-template>
     </ngb-tab>
@@ -50,15 +118,17 @@
       <small class="text-muted" *ngSwitchDefault>{{spell.level}}th level {{spell.school}} spell</small>
     </div>
     <!-- loop over classes and display them with the appropriate subclass requirements if needed -->
+    <!-- needs work to desplay inline  -->
     <div *ngFor="let class of spell.classes">
-      <div [ngSwitch]="class">
-        <small *ngSwitchCase="Cleric"> {{class}}  <small *ngFor="let domain of spell.domains">{{domain}}, </small></small>
-        <small *ngSwitchCase="Druid"> {{class}}   <small *ngFor="let circle of spell.circles">{{circle}}, </small></small>
-        <small *ngSwitchCase="Paladin"> {{class}} <small *ngFor="let oath of spell.oaths">{{oath}}, </small></small>
-        <small *ngSwitchCase="Warlock"> {{class}} <small *ngFor="let patron of spell.patrons">{{patron}}, </small></small>
-        <small *ngSwitchDefault>{{class}}</small>
+      <div class="d-inline" [ngSwitch]="class">
+        <small class="text-muted d-inline" *ngSwitchCase="'Cleric'"> {{class}}  <small *ngFor="let domain of spell.domains">{{domain}}, </small></small>
+        <small class="text-muted d-inline" *ngSwitchCase="'Druid'"> {{class}}   <small *ngFor="let circle of spell.circles">{{circle}}, </small></small>
+        <small class="text-muted d-inline" *ngSwitchCase="'Paladin'"> {{class}} <small *ngFor="let oath of spell.oaths">{{oath}}, </small></small>
+        <small class="text-muted d-inline" *ngSwitchCase="'Warlock'"> {{class}} <small *ngFor="let patron of spell.patrons">{{patron}}, </small></small>
+        <small class="text-muted d-inline" *ngSwitchDefault>{{class}}</small>
       </div>
     </div>
+    <small>source {{spell.source}}</small>
   </div>
 </div>
 <br><br>

@@ -15,20 +15,16 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SpellListComponent implements OnInit {
 
-  name:string;
+  filter: Spell = {} as Spell;
     spells :Array<Spell>;
     spells1 :Array<Spell>;
     errorMessage :any
     constructor(private jsonService:JsonService) {
-      this.name = 'welcome to Angular 2 Services demo';
+      let filterInput = {} as Spell
+      filterInput.name = "Alter"
+      // this.filterInput.name = 'Acid';
       this.spells=new Array();
       this.jsonService.getSpells()
-                .filter(spells =>{
-                  for(let spell of spells) {
-                      if(spell.name == 'Vernon'){
-                  this.spells.push(spell);
-                 }
-               return true}})
                 .subscribe(spells => this.spells = spells,
                 error => this.errorMessage =<any> error);
     }
@@ -36,11 +32,3 @@ export class SpellListComponent implements OnInit {
        console.log(this.spells);
      }
   }
-
-  // @NgModule({
-  //   imports: [ BrowserModule,HttpModule ],
-  //   declarations: [ SpellListComponent ],
-  //   bootstrap: [ SpellListComponent ],
-  //   providers:[JsonService]
-  // })
-  // export class SpellModule {}

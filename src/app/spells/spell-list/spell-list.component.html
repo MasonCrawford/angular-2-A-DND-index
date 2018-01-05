@@ -1,6 +1,8 @@
 <br><br><br>
 <div class="container">
-  <span *ngFor="let spell of spells">
+  <th><input type="text" name="name" [(ngModel)]="filter.name" placeholder="name"></th>
+
+  <span *ngFor="let spell of spells | spellfilter:filter">
         <app-spell [spell]=spell></app-spell>
       </span>
 </div>
