@@ -1,7 +1,7 @@
 <br><br><br>
 <div class="container">
-  <th><input type="text" name="name" [(ngModel)]="filter.name" placeholder="name"></th>
-
+  <!-- <th><input type="text" name="name" [(ngModel)]="filter.name" placeholder="name"></th> -->
+  <app-filter-form [(inito)]="filter"></app-filter-form>
   <span *ngFor="let spell of spells | spellfilter:filter">
         <app-spell [spell]=spell></app-spell>
       </span>

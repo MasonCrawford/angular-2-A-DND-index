@@ -23,7 +23,7 @@ import {JsonService} from './json-service.service';
     CommonModule,
     SpellsRoutingModule,
     NgbModule,
-    BrowserModule,HttpModule
+    BrowserModule,HttpModule, FormsModule
   ],
   exports: [
     SpellListComponent

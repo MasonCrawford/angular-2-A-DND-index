@@ -52,37 +52,31 @@
         higherLevelDie: string;
         higherLevelAmount: string;
         bonus: string;
-    }
-
-    export interface Spell {
-        name: string;
-        description: string;
-        emote: string;
-        source: string;
-        range: string;
-        target: string;
-        aoe: string;
-        components: Components;
-        duration: string;
-        castingTime: string;
-        level: number;
-        school: string;
-        save: Save;
-        effects: string;
-        classes: string[];
-        higherLevel: string;
-        damage: Damage;
-        ritual?: boolean;
-        concentration?: boolean;
-        domains: string[];
-        oaths: string[];
-        circles: string[];
-        patrons: string[];
-        attack: Attack;
-        heal: Heal;
-    }
-
-    export interface RootObject {
-        spells: Spell[];
-        version: string;
-    }
+      }
+          export interface Spell {
+              name: string;
+              description: string;
+              emote: string;
+              source: string;
+              range: string;
+              target: string;
+              aoe: string;
+              components: Components;
+              duration: string;
+              castingTime: string;
+              level: number;
+              school: string;
+              save: Save;
+              effects: string;
+              classes: string[];
+              higherLevel: string;
+              damage: Damage;
+              ritual?: boolean;
+              concentration?: boolean;
+              domains: string[];
+              oaths: string[];
+              circles: string[];
+              patrons: string[];
+              attack: Attack;
+              heal: Heal;
+          }

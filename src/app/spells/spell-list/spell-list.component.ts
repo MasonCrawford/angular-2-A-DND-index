@@ -14,14 +14,12 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./spell-list.component.css']
 })
 export class SpellListComponent implements OnInit {
-
-  filter: Spell = {} as Spell;
-    spells :Array<Spell>;
-    spells1 :Array<Spell>;
+    filter: Spell = {} as Spell;
+    spells : Array<Spell>;
     errorMessage :any
     constructor(private jsonService:JsonService) {
       let filterInput = {} as Spell
-      filterInput.name = "Alter"
+      filterInput.name = ""
       // this.filterInput.name = 'Acid';
       this.spells=new Array();
       this.jsonService.getSpells()
@@ -29,6 +27,5 @@ export class SpellListComponent implements OnInit {
                 error => this.errorMessage =<any> error);
     }
      ngOnInit() : void{
-       console.log(this.spells);
      }
   }
