@@ -17,7 +17,7 @@ export class JsonService {
     getSpells(): Observable<Spell[]> {
         return this._http.get(this._url)
             .map((response: Response) => <Spell[]>response.json())
-            .do(data => console.log("Spell data" + JSON.stringify(data)))
+            .do(data => console.log("Spell data imported"))
             .catch(this.handleError);
     }
 

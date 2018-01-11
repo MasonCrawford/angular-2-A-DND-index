@@ -26,6 +26,9 @@ export class SpellListComponent implements OnInit {
                 .subscribe(spells => this.spells = spells,
                 error => this.errorMessage =<any> error);
     }
+    //testing fuction for loging outputs
+    public logIt=(input)=>{console.log(input)}
+
      ngOnInit() : void{
      }
   }

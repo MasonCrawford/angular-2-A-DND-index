@@ -9,9 +9,11 @@ import {Spell} from '../model/spell.model';
 export class SpellComponent implements OnInit {
   @Input() spell: Spell;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+
   }
 
 }
