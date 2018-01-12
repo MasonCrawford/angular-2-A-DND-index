@@ -6,6 +6,7 @@
         <div class="card-body">
           <h4 class="card-title mb-0">fillter form</h4>
           <form>
+            <button type="button" class="btn btn-danger" (click)="clearFilter()">clearFilter</button>
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -89,23 +90,74 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="spellLevel">Level</label>
+                    <label for="spellClass">classes</label>
                     <!-- <input class="form-control form-control-sm" type="select" placeholder="name"> -->
                     <select multiple class="form-control" id="spellClass" name="spellClass" [(ngModel)]="formFilter.classes">
-                          <option selected>Cleric</option>
-                          <option >Druid</option>
-                          <option >Ranger</option>
-                          <option >Wizard</option>
-                          <option >Paladin</option>
-                          <option >Bard</option>
-                          <option >Sorcerer</option>
-                        </select>
+                      <option >Any</option>
+                      <option >Cleric</option>
+                      <option >Druid</option>
+                      <option >Ranger</option>
+                      <option >Wizard</option>
+                      <option >Paladin</option>
+                      <option >Bard</option>
+                      <option >Sorcerer</option>
+                    </select>
+                  </div>
+                  <div *ngIf="formFilter.classes.includes('Paladin')" class="form-group">
+                    <label for="spellOaths">Oaths</label>
+                    <!-- <input class="form-control form-control-sm" type="select" placeholder="name"> -->
+                    <select multiple class="form-control" id="spellOaths" name="spellOaths" [(ngModel)]="formFilter.oaths">
+                      <option >Any</option>
+                      <option >Vengeance</option>
+                      <option >Devotion</option>
+                      <option >Ancients</option>
+                    </select>
+                  </div>
+                  <div *ngIf="formFilter.classes.includes('Druid')" class="form-group">
+                    <label for="spellCircles">Circles</label>
+                    <!-- <input class="form-control form-control-sm" type="select" placeholder="name"> -->
+                    <select multiple class="form-control" id="spellCircles" name="spellCircles" [(ngModel)]="formFilter.circles">
+                      <option >Any</option>
+                      <option >Forest</option>
+                      <option >Desert</option>
+                      <option >Coast</option>
+                      <option >Swamp</option>
+                      <option >Arctic</option>
+                      <option >Mountain</option>
+                      <option >Grassland</option>
+                      <option >Underdark</option>
+                    </select>
+                  </div>
+                  <div *ngIf="formFilter.classes.includes('Warlock')" class="form-group">
+                    <label for="spellPatrons">Patrons</label>
+                    <!-- <input class="form-control form-control-sm" type="select" placeholder="name"> -->
+                    <select multiple class="form-control" id="spellPatrons" name="spellPatrons" [(ngModel)]="formFilter.patrons">
+                      <option >Any</option>
+                      <option >Great Old One</option>
+                      <option >Fiend</option>
+                      <option >Archfey</option>
+                      <option >Fiend</option>
+                    </select>
+                  </div>
+                  <div *ngIf="formFilter.classes.includes('Cleric')" class="form-group">
+                    <label for="spellDomains">Domains</label>
+                    <!-- <input class="form-control form-control-sm" type="select" placeholder="name"> -->
+                    <select multiple class="form-control" id="spellDomains" name="spellDomains" [(ngModel)]="formFilter.domains">
+                      <option >Any</option>
+                      <option >Light</option>
+                      <option >War</option>
+                      <option >Tempest</option>
+                      <option >Nature</option>
+                      <option >Life</option>
+                      <option >Knowledge</option>
+                      <option >Trickery</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="spellLevel">Level</label>
-                    <input class="form-control form-control-sm" type="text" id="spellLevel" name="spellLevel" [(ngModel)]="formFilter.duration" placeholder="name">
+                    <input class="form-control form-control-sm" type="text" id="spellLevel" name="spellLevel" [(ngModel)]="formFilter.level" placeholder="1">
                   </div>
                 </div>
               </div>

@@ -21,8 +21,11 @@ export class FilterFormComponent {
   //testing log classes
   public logit = (input) => {
     console.log(input)
+    this.formFilter.classes = ["Any"]
   }
-
+public clearFilter = ()=>{
+  this.formFilter = {} as Spell
+}
   public toggleCheek = (value) => {
     this.formFilter.ritual = value
   }

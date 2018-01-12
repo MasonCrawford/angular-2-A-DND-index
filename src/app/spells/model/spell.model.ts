@@ -73,7 +73,7 @@
             higherLevel: string;
             damage: Damage;
             ritual: any;
-            concentration?: boolean;
+            concentration: any;
             domains: string[];
             oaths: string[];
             circles: string[];
