@@ -22,7 +22,7 @@ export class SpellFilterPipe implements PipeTransform {
     for (let field in filter) {
       if (field == "ritual" || field == "concentration") {
         // console.log("in fiel == ritual")
-        if (filter[field] == true) {
+        if (filter[field] == "true") {
           // console.log("in filter[field] == true")
           if (spell[field]) {
             // console.log("in spell[field] == true")
@@ -33,7 +33,7 @@ export class SpellFilterPipe implements PipeTransform {
 
             return false
           }
-        } else if (filter[field] == false) {
+        } else if (filter[field] == "false") {
           // console.log("in filter[field] == false")
 
           if (!spell[field]) {
@@ -49,10 +49,11 @@ export class SpellFilterPipe implements PipeTransform {
       //start class filtter
       // console.log(field)
       if (field == "classes" || field == "patrons" || field == "circles" || field == "oaths" || field == "domains") {
-        if (spell[field]) {
+        if (spell[field] || filter[field].toString() == "Any" ) {
           // console.log("filter "+filter[field])
           // console.log("spell "+spell[field])
           if (filter[field].toString() == "Any") {
+          // console.log("path hit any " + spell[field]+"<- spell, field -> "+field)
                // return true
           }
           else if (spell[field].filter(sClass => {
@@ -69,17 +70,20 @@ export class SpellFilterPipe implements PipeTransform {
             // console.log("t")
             // return true
           }
-        }else{return false}
+        }
+        else{return false}
       }
       //start of string filter / number
-      if (typeof filter[field] === 'string') {
-        if (spell[field].toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
-          return false;
-        }
-        else {
-          // return true
+      if (field == "name" || field == "description" || field == "range" || field == "target" || field == "aoe" || field == "duration" || field == "castingTime" || field == "school" || field == "effects" || field=="higherLevel" || field=="source" || field=="emote"  ) {
+        if (spell[field]) {
+          if (spell[field].toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
+            return false;
+          }
+          else {
+            // return true
+           }
          }
-      } else if (typeof filter[field] === 'number') {
+      } else if (field == "level") {
         if (spell[field] !== filter[field]) {
           return false;
         }
