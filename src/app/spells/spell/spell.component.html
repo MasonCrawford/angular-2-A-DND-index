@@ -74,12 +74,99 @@
         <div class="card-body">
           <h4 class="card-title">Damage</h4>
           <p class="card-text">
-            {{spell.damage.damage}} {{spell.damage.damageType}} {{spell.damage.higherLevelDice}} {{spell.damage.higherLevelDie}} {{spell.damage.castingStat}} {{spell.damage.secondaryDamage}} {{spell.damage.secondaryDamageType}} {{spell.damage.damageBonus}}
-          </p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th *ngIf="spell.damage.damage">damage</th>
+                  <th *ngIf="spell.damage.damageType">damage type</th>
+                  <th *ngIf="spell.damage.higherLevelDice">higher Level</th>
+                  <th *ngIf="spell.damage.secondaryDamage"> secondarydamage</th>
+                  <th *ngIf="spell.damage.secondaryDamageType">secondary damage type</th>
+                  <th *ngIf="spell.damage.castingStat">casting Stat</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td *ngIf="spell.damage.damage">
+                    {{spell.damage.damage}}
+                    <div class="d-inline" *ngIf="spell.damage.damageBonus"> + {{spell.damage.damageBonus}}</div>
+                  </td>
+                  <td *ngIf="spell.damage.damageType">
+                    {{spell.damage.damageType}}
+                  </td>
+                  <td *ngIf="spell.damage.higherLevelDice">
+                    {{spell.damage.higherLevelDice}}{{spell.damage.higherLevelDie}}
+                  </td>
+                  <td *ngIf="spell.damage.secondaryDamage">
+                    {{spell.damage.secondaryDamage}}
+                    <div class="d-inline" *ngIf="spell.damage.damageBonus"> + {{spell.damage.damageBonus}}</div>
+                  </td>
+                  <td *ngIf="spell.damage.secondaryDamageType">
+                    {{spell.damage.secondaryDamageType}}
+                  </td>
+                  <td *ngIf="spell.damage.castingStat">
+                    {{spell.damage.higherLevelDice}}{{spell.damage.higherLevelDie}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab *ngIf="spell.attack">
+      <ng-template ngbTabTitle>Attack</ng-template>
+      <ng-template ngbTabContent>
+        <div class="card-body">
+          <h4 class="card-title">Attack</h4>
           <p class="card-text">
-            {{spell.attack.type}} {{spell.attack.damage}} {{spell.attack.damageType}} {{spell.attack.higherLevelDice}} {{spell.attack.higherLevelDie}} {{spell.attack.secondaryDamage}} {{spell.attack.secondaryDamageType}} {{spell.attack.higherLevelSecondaryDice}}
-            {{spell.attack.higherLevelSecondaryDie}} {{spell.attack.castingStat}}
-          </p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th *ngIf="spell.attack.type">attack type</th>
+                  <th *ngIf="spell.attack.damage">damage</th>
+                  <th *ngIf="spell.attack.damageType">damage type</th>
+                  <th *ngIf="spell.attack.higherLevelDice">higher Level</th>
+                  <th *ngIf="spell.attack.secondaryDamage">secondary damage</th>
+                  <th *ngIf="spell.attack.secondaryDamageType">secondary damage type</th>
+                  <th *ngIf="spell.attack.higherLevelSecondaryDie">secondary higher Level</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td *ngIf="spell.attack.type">
+                    {{spell.attack.type}}
+                  </td>
+                  <td *ngIf="spell.attack.damage">
+                    {{spell.attack.damage}}
+                  </td>
+                  <td *ngIf="spell.attack.damageType">
+                    {{spell.attack.damageType}}
+                  </td>
+                  <td *ngIf="spell.attack.higherLevelDice">
+                    {{spell.attack.higherLevelDice}}{{spell.attack.higherLevelDie}}
+                  </td>
+                  <td *ngIf="spell.attack.secondaryDamage">
+                    {{spell.attack.secondaryDamage}}
+                  </td>
+                  <td *ngIf="spell.attack.secondaryDamageType">
+                    {{spell.attack.secondaryDamageType}}
+                  </td>
+                  <td *ngIf="spell.attack.higherLevelSecondaryDice">
+                    {{spell.attack.higherLevelSecondaryDice}}{{spell.attack.higherLevelSecondaryDie}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <p class="card-text">
+              {{spell.damage.damage}} {{spell.damage.damageType}} {{spell.damage.higherLevelDice}} {{spell.damage.higherLevelDie}} {{spell.damage.castingStat}} {{spell.damage.secondaryDamage}} {{spell.damage.secondaryDamageType}} {{spell.damage.damageBonus}}
+            </p>
+            <p class="card-text">
+              {{spell.attack.type}} {{spell.attack.damage}} {{spell.attack.damageType}} {{spell.attack.higherLevelDice}} {{spell.attack.higherLevelDie}} {{spell.attack.secondaryDamage}} {{spell.attack.secondaryDamageType}} {{spell.attack.higherLevelSecondaryDice}}
+              {{spell.attack.higherLevelSecondaryDie}} {{spell.attack.castingStat}}
+            </p> -->
         </div>
       </ng-template>
     </ngb-tab>
@@ -90,9 +177,53 @@
         <div class="card-body">
           <h4 class="card-title">Save</h4>
           <p class="card-text">
-            {{spell.save.ability}} {{spell.save.damage}} {{spell.save.damageType}} {{spell.save.saveSuccess}} {{spell.save.higherLevelDice}} {{spell.save.higherLevelDie}} {{spell.save.saveFailure}} {{spell.save.secondaryDamage}} {{spell.save.secondaryDamageType}}
-            {{spell.save.damageBonus}} {{spell.save.condition}}
-          </p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th *ngIf="spell.save.ability">ability</th>
+                  <th *ngIf="spell.save.damage">damage</th>
+                  <th *ngIf="spell.save.damageType">damage type</th>
+                  <th *ngIf="spell.save.saveSuccess">on Successfull save</th>
+                  <th *ngIf="spell.save.saveFailure">on failed save</th>
+                  <th *ngIf="spell.save.higherLevelDice">higher Level damage</th>
+                  <th *ngIf="spell.save.secondaryDamage">secondary damage</th>
+                  <th *ngIf="spell.save.secondaryDamageType">secondary damage type</th>
+                  <th *ngIf="spell.save.condition">condition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td *ngIf="spell.save.ability">
+                    {{spell.save.ability}} saving throw
+                  </td>
+                  <td *ngIf="spell.save.damage">
+                    {{spell.save.damage}}
+                    <div class="d-inline" *ngIf="spell.save.damageBonus"> + {{spell.save.damageBonus}}</div>
+                  </td>
+                  <td *ngIf="spell.save.damageType">
+                    {{spell.save.damageType}}
+                  </td>
+                  <td *ngIf="spell.save.saveSuccess">
+                    {{spell.save.saveSuccess}}
+                  </td>
+                  <td *ngIf="spell.save.saveFailure">
+                    {{spell.save.saveFailure}}
+                  </td>
+                  <td *ngIf="spell.save.higherLevelDice">
+                    {{spell.save.higherLevelDice}}{{spell.save.higherLevelDie}}
+                  </td>
+                  <td *ngIf="spell.save.secondaryDamage">
+                    {{spell.save.secondaryDamage}}
+                  </td>
+                  <td *ngIf="spell.save.secondaryDamageType">
+                    {{spell.save.secondaryDamageType}}
+                  </td>
+                  <td *ngIf="spell.save.condition">
+                    {{spell.save.condition}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       </ng-template>
     </ngb-tab>
@@ -103,8 +234,31 @@
         <div class="card-body">
           <h4 class="card-title">Heal</h4>
           <p class="card-text">
-            {{spell.heal.amount}} {{spell.heal.castingStat}} {{spell.heal.higherLevelDice}} {{spell.heal.higherLevelDie}} {{spell.heal.higherLevelAmount}} {{spell.heal.bonus}}
-          </p>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th *ngIf="spell.heal.amount">amount</th>
+                  <th *ngIf="spell.heal.castingStat">casting stat</th>
+                  <th *ngIf="spell.heal.higherLevelDie || spell.heal.higherLevelAmount">higher level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td *ngIf="spell.heal.amount">
+                    {{spell.heal.amount}}
+                    <div class="d-inline" *ngIf="spell.heal.bonus"> + {{spell.heal.bonus}}</div>
+                  </td>
+                  <td *ngIf="spell.heal.castingStat">
+                    {{spell.heal.castingStat}}
+                  </td>
+                  <td *ngIf="spell.heal.higherLevelDie || spell.heal.higherLevelAmount">
+                    {{spell.heal.higherLevelDice}}{{spell.heal.higherLevelDie}}
+                    <div class="d-inline" *ngIf="spell.heal.higherLevelAmount"> + {{spell.heal.higherLevelAmount}}</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       </ng-template>
     </ngb-tab>
@@ -121,14 +275,22 @@
     <!-- needs work to desplay inline  -->
     <div *ngFor="let class of spell.classes">
       <div class="d-inline" [ngSwitch]="class">
-        <small class="text-muted d-inline" *ngSwitchCase="'Cleric'"> {{class}}  <small *ngFor="let domain of spell.domains">{{domain}}, </small></small>
-        <small class="text-muted d-inline" *ngSwitchCase="'Druid'"> {{class}}   <small *ngFor="let circle of spell.circles">{{circle}}, </small></small>
-        <small class="text-muted d-inline" *ngSwitchCase="'Paladin'"> {{class}} <small *ngFor="let oath of spell.oaths">{{oath}}, </small></small>
-        <small class="text-muted d-inline" *ngSwitchCase="'Warlock'"> {{class}} <small *ngFor="let patron of spell.patrons">{{patron}}, </small></small>
-        <small class="text-muted d-inline" *ngSwitchDefault>{{class}}</small>
+        <div class="text-muted d-inline" *ngSwitchCase="'Cleric'"> {{class}}
+          <div *ngFor="let domain of spell.domains">{{domain}}, </div>
+        </div>
+        <div class="text-muted d-inline" *ngSwitchCase="'Druid'"> {{class}}
+          <div *ngFor="let circle of spell.circles">{{circle}}, </div>
+        </div>
+        <div class="text-muted d-inline" *ngSwitchCase="'Paladin'"> {{class}}
+          <div *ngFor="let oath of spell.oaths">{{oath}}, </div>
+        </div>
+        <div class="text-muted d-inline" *ngSwitchCase="'Warlock'"> {{class}}
+          <div *ngFor="let patron of spell.patrons">{{patron}}, </div>
+        </div>
+        <div class="text-muted d-inline" *ngSwitchDefault>{{class}}</div>
       </div>
     </div>
-    <small>source {{spell.source}}</small>
+    <small class="text-muted">source {{spell.source}}</small>
   </div>
 </div>
 <br><br>

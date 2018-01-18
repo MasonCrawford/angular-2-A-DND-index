@@ -1,6 +1,6 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, DoCheck } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Spell } from '../model/spell.model';
+import { Spell,Damage,Save,Heal,Attack } from '../model/spell.model';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/concatMap';
 
@@ -17,8 +17,40 @@ export class FilterFormComponent {
     this.formFilter = value;
   }
   formFilter: Spell = {} as Spell;
+  damage: Damage = {} as Damage
+  attack: Attack = {} as Attack
+  save: Save = {} as Save
+  heal: Heal = {} as Heal
+
   object: Object
   constructor() {
+  }
+  ngDoCheck() {
+    const change = this.damage
+    for (let field in this.damage) {
+      if (this.damage[field]) {
+        this.formFilter.damage = this.damage
+        console.log("damage added")
+      }
+    }
+    for (let field in this.attack) {
+      if (this.attack[field]) {
+        this.formFilter.attack = this.attack
+        console.log("attack added")
+      }
+    }
+    for (let field in this.save) {
+      if (this.save[field]) {
+        this.formFilter.save = this.save
+        console.log("save added")
+      }
+    }
+    for (let field in this.heal) {
+      if (this.heal[field]) {
+        this.formFilter.heal = this.heal
+        console.log("heal added")
+      }
+    }
   }
   //testing log classes
   public logit = (input) => {
