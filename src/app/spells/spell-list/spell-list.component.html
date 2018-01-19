@@ -20,7 +20,35 @@
 <div class="container">
   <!-- <th><input type="text" name="name" [(ngModel)]="filter.name" placeholder="name"></th> -->
   <app-filter-form [(inito)]="filter"></app-filter-form>
-  <span *ngFor="let spell of spells | spellfilter:filter">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">order by</h4>
+      <form action="">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-sm" (click)="sort('name')">
+              Name
+              <!-- <i class="fa" [ngClass]="{'fa-sort': column != 'CategoryID', 'fa-sort-asc': (column == 'CategoryID' && isDesc), 'fa-sort-desc': (column == 'CategoryID' && !isDesc) }" aria-hidden="true"> </i> -->
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-sm" (click)="sort('level')">
+              Levle
+              <!-- <i class="fa" [ngClass]="{'fa-sort': column != 'CategoryName', 'fa-sort-asc': (column == 'CategoryName' && isDesc), 'fa-sort-desc': (column == 'CategoryName' && !isDesc) }" aria-hidden="true"> </i> -->
+            </button>
+          </div>
+
+          <!-- <div class="col">
+            <button class="btn btn-sm" (click)="sort('class')">
+              Class
+              <i class="fa" [ngClass]="{'fa-sort': column != 'Description', 'fa-sort-asc': (column == 'Description' && isDesc), 'fa-sort-desc': (column == 'Description' && !isDesc) }" aria-hidden="true"> </i>
+            </button>
+          </div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+  <span *ngFor="let spell of spells | spellfilter:filter | orderBy: {property: column, direction: direction}">
         <app-spell [spell]=spell></app-spell>
       </span>
 </div>

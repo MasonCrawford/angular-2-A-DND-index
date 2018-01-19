@@ -13,6 +13,7 @@ import { FilterFormComponent } from './filter-form/filter-form.component';
 import { SpellComponent } from './spell/spell.component';
 import { SpellDetailsComponent } from './spell/spell-details/spell-details.component';
 
+import {OrderrByPipe} from './pipes/orderBy.pipe';
 
 import {JsonService} from './json-service.service';
 
@@ -32,6 +33,7 @@ import {JsonService} from './json-service.service';
     SpellListComponent,
     FilterFormComponent,
     SpellFilterPipe,
+    OrderrByPipe,
     SpellComponent,
     SpellDetailsComponent
   ],

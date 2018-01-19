@@ -11,7 +11,6 @@ import { BredCrumbsComponent } from './navbar/bred-crumbs/bred-crumbs.component'
 import { SpellsModule } from './spells/spells.module';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

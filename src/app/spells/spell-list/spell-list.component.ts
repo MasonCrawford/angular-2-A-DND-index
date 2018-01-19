@@ -7,6 +7,7 @@ import {HttpModule} from '@angular/http';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/concatMap';
 import { Observable } from 'rxjs/Observable';
+// import {OrderrByPipe} from '.../pipe/orderby.pipe';
 
 @Component({
   selector: 'app-spell-list',
@@ -31,4 +32,10 @@ export class SpellListComponent implements OnInit {
 
      ngOnInit() : void{
      }
+     sort(property){
+      console.log(property)
+      this.isDesc = !this.isDesc; //change the direction
+      this.column = property;
+      this.direction = this.isDesc ? 1 : -1;
+    };
   }
