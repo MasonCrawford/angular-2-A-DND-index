@@ -6,7 +6,6 @@
         <div class="card-body">
           <h4 class="card-title mb-0">fillter form</h4>
           <form>
-            <button type="button" class="btn btn-danger" (click)="clearFilter()">clearFilter</button>
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -19,31 +18,31 @@
               <div class="col">
                 <div class="form-group">
                   <label for="spellRange">Range</label>
-                  <input class="form-control form-control-sm" type="text" id="spellRange" name="spellRange" [(ngModel)]="formFilter.range" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellRange" name="spellRange" [(ngModel)]="formFilter.range" placeholder="touch">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="spellTarget">Target</label>
-                  <input class="form-control form-control-sm" type="text" id="spellTarget" name="spellTarget" [(ngModel)]="formFilter.target" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellTarget" name="spellTarget" [(ngModel)]="formFilter.target" placeholder="self">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="AreaOfEffect">Area of Effect</label>
-                  <input class="form-control form-control-sm" type="text" id="spellAreaOfEffect" name="spellAreaOfEffect" [(ngModel)]="formFilter.aoe" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellAreaOfEffect" name="spellAreaOfEffect" [(ngModel)]="formFilter.aoe" placeholder="30ft">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="spellDuration">Duration</label>
-                  <input class="form-control form-control-sm" type="text" id="spellDuration" name="spellDuration" [(ngModel)]="formFilter.duration" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellDuration" name="spellDuration" [(ngModel)]="formFilter.duration" placeholder="1 round">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="spellCastingTime">Casting Time</label>
-                  <input class="form-control form-control-sm" type="text" id="spellCastingTime" name="spellCastingTime" [(ngModel)]="formFilter.castingTime	" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellCastingTime" name="spellCastingTime" [(ngModel)]="formFilter.castingTime	" placeholder="1 action">
                 </div>
               </div>
             </div>
@@ -87,19 +86,19 @@
               <div class="col">
                 <div class="form-group">
                   <label for="spellComponents">components</label>
-                  <input class="form-control form-control-sm" type="text" id="spellCastingTime" name="spellCastingTime" [(ngModel)]="formFilter.castingTime	" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellCastingTime" name="spellCastingTime" [(ngModel)]="formFilter.castingTime	" placeholder="no added">
                 </div>
               </div>
               <div class="col">
-                <div class="form-group form-control-sm">
+                <div class="form-group">
                   <label for="spellLevel">Level</label>
                   <input class="form-control form-control-sm" type="number" id="spellLevel" name="spellLevel" min="0" max="9" [(ngModel)]="formFilter.level" placeholder="1">
                 </div>
               </div>
               <div class="col">
-                <div class="form-group form-control-sm">
+                <div class="form-group">
                   <label for="spellSource">Source</label>
-                  <input type="text" class="form-control" id="spellSource" name="spellSource" [(ngModel)]="formFilter.source">
+                  <input type="text" class="form-control form-control-sm" id="spellSource" name="spellSource" [(ngModel)]="formFilter.source">
                 </div>
               </div>
 
@@ -123,7 +122,6 @@
                   <textarea class="form-control" id="higherLevel" name="higherLevel" rows="3" [(ngModel)]="formFilter.higherLevel"></textarea>
                 </div>
               </div>
-              <!-- this spot -->
               <div class="col">
                 <div class="form-group">
                   <label for="spellClass">classes</label>
@@ -212,35 +210,35 @@
               <div class="col">
                 <div class="form-group">
                   <label for="spellDamageDamageType">damage type</label>
-                  <input class="form-control form-control-sm" type="text" id="spellDamageDamageType" name="spellDamageDamageType" [(ngModel)]="damage.damageType" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellDamageDamageType" name="spellDamageDamageType" [(ngModel)]="damage.damageType" placeholder="acid">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="spellHigherLevel">higher Level</label>
                   <div class="input-group">
-                    <input class="form-control form-control-sm" type="number" id="spellHigherLevel" name="spellHigherLevel" [(ngModel)]="damage.higherLevelDice" placeholder="1">
-                    <input class="form-control form-control-sm" type="text" id="spellHigherLevel" name="spellHigherLevel" [(ngModel)]="damage.higherLevelDie" placeholder="d4">
+                    <input class="form-control form-control-sm" type="number" id="spellHigherLevelDice" name="spellHigherLevelDice" [(ngModel)]="damage.higherLevelDice" placeholder="1">
+                    <input class="form-control form-control-sm" type="text" id="spellHigherLevelDie" name="spellHigherLevelDie" [(ngModel)]="damage.higherLevelDie" placeholder="d4">
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label for="spellDamageCastingStat">casting Stat</label>
-                  <input class="form-control form-control-sm" type="text" id="spellDamageCastingStat" name="spellDamageCastingStat" [(ngModel)]="damage.castingStat" placeholder="name">
+                  <input class="form-control form-control-sm" type="text" id="spellDamageCastingStat" name="spellDamageCastingStat" [(ngModel)]="damage.castingStat" placeholder="true">
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="form-group">
                     <label for="spellDamageSecondaryDamage">secondary Damage</label>
-                    <input class="form-control" type="text" id="spellDamageSecondaryDamage" name="spellDamageSecondaryDamage" [(ngModel)]="damage.secondaryDamage" placeholder="1d4">
+                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamage" name="spellDamageSecondaryDamage" [(ngModel)]="damage.secondaryDamage" placeholder="1d4">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="spellDamageSecondaryDamageType">Secondary damage type</label>
-                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamageType" name="spellDamageSecondaryDamageType" [(ngModel)]="damage.secondaryDamageType" placeholder="name">
+                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamageType" name="spellDamageSecondaryDamageType" [(ngModel)]="damage.secondaryDamageType" placeholder="acid">
                   </div>
                 </div>
               </div>
@@ -255,7 +253,66 @@
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Attack</h4>
-          <p class="card-text"> </p>
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellAttackType">type</label>
+                  <input class="form-control form-control-sm" type="text" id="spellAttackType" name="spellAttackType" [(ngModel)]="attack.type" placeholder="range">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellAttackDamage">damage</label>
+                  <input class="form-control form-control-sm" type="text" id="spellAttackDamage" name="spellAttackDamage" [(ngModel)]="attack.damage" placeholder="1d4">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellAttackDamageType">damage type</label>
+                  <input class="form-control form-control-sm" type="text" id="spellAttackDamageType" name="spellAttackDamageType" [(ngModel)]="attack.damageType" placeholder="necrotic">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHigherLevel">higher Level</label>
+                  <div class="input-group">
+                    <input class="form-control form-control-sm" type="number" id="spellHigherLevelDice" name="spellHigherLevelDice" [(ngModel)]="attack.higherLevelDice" placeholder="1">
+                    <input class="form-control form-control-sm" type="text" id="spellHigherLevelDie" name="spellHigherLevelDie" [(ngModel)]="attack.higherLevelDie" placeholder="d4">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellDamageCastingStat">casting Stat</label>
+                  <input class="form-control form-control-sm" type="text" id="spellDamageCastingStat" name="spellDamageCastingStat" [(ngModel)]="attack.castingStat" placeholder="true">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellDamageSecondaryDamage">secondary Damage</label>
+                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamage" name="spellDamageSecondaryDamage" [(ngModel)]="attack.secondaryDamage" placeholder="1d4">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellDamageSecondaryDamageType">Secondary damage type</label>
+                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamageType" name="spellDamageSecondaryDamageType" [(ngModel)]="attack.secondaryDamageType" placeholder="force">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellHigherLevel">Secondary higher Level</label>
+                    <div class="input-group">
+                      <input class="form-control form-control-sm" type="number" id="spellAttackSecondaryHigherLevelDice" name="spellAttackSecondaryHigherLevelDice" [(ngModel)]="attack.higherLevelSecondaryDice" placeholder="1">
+                      <input class="form-control form-control-sm" type="text" id="spellAttackSecondaryHigherLevelDie" name="spellAttackSecondaryHigherLevelDie" [(ngModel)]="attack.higherLevelSecondaryDie" placeholder="d4">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </ng-template>
     </ngb-tab>
@@ -265,7 +322,78 @@
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Save</h4>
-          <p class="card-text"> </p>
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellSaveAbility">ability</label>
+                  <input class="form-control form-control-sm" type="text" id="spellSaveAbility" name="spellSaveAbility" [(ngModel)]="save.ability" placeholder="range">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellSaveDamage">damage</label>
+                  <input class="form-control form-control-sm" type="text" id="spellSaveDamage" name="spellSaveDamage" [(ngModel)]="save.damage" placeholder="1d4">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellSaveDamageType">damage type</label>
+                  <input class="form-control form-control-sm" type="text" id="spellSaveDamageType" name="spellSaveDamageType" [(ngModel)]="save.damageType" placeholder="necrotic">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellSaveDamageBonus">damage Bonus</label>
+                  <input class="form-control form-control-sm" type="text" id="spellSaveDamageBonus" name="spellSaveDamageBonus" [(ngModel)]="save.damageBonus" placeholder="1">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHigherLevel">higher Level</label>
+                  <div class="input-group">
+                    <input class="form-control form-control-sm" type="number" id="spellHigherLevelDice" name="spellHigherLevelDice" [(ngModel)]="save.higherLevelDice" placeholder="1">
+                    <input class="form-control form-control-sm" type="text" id="spellHigherLevelDie" name="spellHigherLevelDie" [(ngModel)]="save.higherLevelDie" placeholder="d4">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellDamageCastingStat">casting Stat</label>
+                  <input class="form-control form-control-sm" type="text" id="spellDamageCastingStat" name="spellDamageCastingStat" [(ngModel)]="save.castingStat" placeholder="true">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellSaveSecondaryDamage">secondary Damage</label>
+                    <input class="form-control form-control-sm" type="text" id="spellSaveSecondaryDamage" name="spellSaveSecondaryDamage" [(ngModel)]="save.secondaryDamage" placeholder="1d4">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellDamageSecondaryDamageType">Secondary damage type</label>
+                    <input class="form-control form-control-sm" type="text" id="spellDamageSecondaryDamageType" name="spellDamageSecondaryDamageType" [(ngModel)]="save.secondaryDamageType" placeholder="force">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellSaveSecondaryHigherLevelDice">Secondary higher Level</label>
+                    <div class="input-group">
+                      <input class="form-control form-control-sm" type="number" id="spellSaveSecondaryHigherLevelDice" name="spellSaveSecondaryHigherLevelDice" [(ngModel)]="save.higherLevelSecondaryDice" placeholder="1">
+                      <input class="form-control form-control-sm" type="text" id="spellSaveSecondaryHigherLevelDie" name="spellSaveSecondaryHigherLevelDie" [(ngModel)]="save.higherLevelSecondaryDie" placeholder="d4">
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="spellSaveCondition">Condition</label>
+                    <input class="form-control form-control-sm" type="text" id="spellSaveCondition" name="spellSaveCondition" [(ngModel)]="save.condition" placeholder="force">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </ng-template>
     </ngb-tab>
@@ -275,15 +403,51 @@
       <ng-template ngbTabContent>
         <div class="card-body">
           <h4 class="card-title">Heal</h4>
-          <p class="card-text">
-          </p>
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHealAmount">amount</label>
+                  <input class="form-control form-control-sm" type="text" id="spellHealAmount" name="spellHealAmount" [(ngModel)]="heal.amount" placeholder="1d4">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHealCastingStat">castingStat</label>
+                  <input class="form-control form-control-sm" type="text" id="spellHealCastingStat" name="spellHealCastingStat" [(ngModel)]="heal.castingStat" placeholder="true">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHealHigherLevelDice">higher Level</label>
+                  <div class="input-group">
+                    <input class="form-control form-control-sm" type="number" id="spellHealHigherLevelDice" name="spellHealHigherLevelDice" [(ngModel)]="heal.higherLevelDice" placeholder="1">
+                    <input class="form-control form-control-sm" type="text" id="spellHealHigherLevelDie" name="spellHealHigherLevelDie" [(ngModel)]="heal.higherLevelDie" placeholder="d4">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHealHigherLevelAmount">higher Level Amount</label>
+                  <input class="form-control form-control-sm" type="text" id="spellHealHigherLevelAmount" name="spellHealHigherLevelAmount" [(ngModel)]="heal.higherLevelAmount" placeholder="10">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="spellHealBonus">bonus</label>
+                  <input class="form-control form-control-sm" type="text" id="spellHealBonus" name="spellHealBonus" [(ngModel)]="heal.bonus" placeholder="5">
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </ng-template>
     </ngb-tab>
   </ngb-tabset>
 
   <div class="card-footer">
-    <p (click)="logit(formFilter)"> filter form</p>
+    <p class="float-left card-text" (click)="logit(formFilter)"> filter form </p>
+    <button type="button" class="btn btn-sm float-right btn-danger" (click)="clearFilter()">clearFilter</button>
   </div>
 </div>
 
