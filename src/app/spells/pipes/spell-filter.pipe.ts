@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { Spell } from './spell.model';
+import {Spell} from "../model/spell.model";
 
 @Pipe({
-  name: 'spellfilter',
+  name: 'spellFilter',
   pure: false
 })
 export class SpellFilterPipe implements PipeTransform {

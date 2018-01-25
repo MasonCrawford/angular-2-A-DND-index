@@ -10,7 +10,6 @@ import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class JsonService {
-    // private _url = "";
     private _url = "assets/data/Spells.json";
     constructor(private _http: Http) {
     }

@@ -1,5 +1,6 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
+import {Spell} from "../model/spell.model";
 
 @Pipe({  name: 'orderBy' })
 export class OrderrByPipe implements PipeTransform {
@@ -8,8 +9,6 @@ export class OrderrByPipe implements PipeTransform {
 console.log('in order by')
 
     return records.sort(function(a, b){
-      // console.log(a)
-      // console.log(b)
 
           if(a[args.property] < b[args.property]){
             return -1 * args.direction;

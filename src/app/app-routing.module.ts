@@ -1,8 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent }      from './home/home.component';
+import { SpellsModule } from './spells/spells.module';
 
-const routes: Routes = [];
 
+const routes: Routes = [
+  { path: 'spells',
+    loadChildren : () => SpellsModule,
+    data: {
+    breadcrumb: "Spells"
+  } },
+  // { path: 'monster', component: MonsterComponent , data: {
+  //   breadcrumb: "Monster"
+  // }},
+  { path: '', component: HomeComponent }
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

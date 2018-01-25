@@ -1,10 +1,13 @@
 <!-- Page Content -->
-<app-navbar></app-navbar>
-<app-spell-list></app-spell-list>
-<section class="py-5">
+<!-- custom navbar component -->
+<app-nav></app-nav>
+<!-- load router outlet lower than the navbar and darken backround -->
+<div class="bg-light" style="margin-top:4em;">
+  <router-outlet></router-outlet>
+</div>
+<!-- footer just to round out the layout -->
+<footer class="py-2 bg-dark">
   <div class="container">
-    <h1>Half Slider by Start Bootstrap</h1>
-    <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the
-      <code>half-slider.css</code>file.</p>
+    <small class="m-0 text-center text-white">By Mason Crawford 2017-2018</small>
   </div>
-</section>
+</footer>

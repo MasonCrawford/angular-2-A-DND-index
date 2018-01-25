@@ -15,9 +15,15 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./spell-list.component.css']
 })
 export class SpellListComponent implements OnInit {
+
     filter: Spell = {} as Spell;
     spells : Array<Spell>;
     errorMessage :any
+
+    isDesc: boolean = false;
+    column: string = 'name';
+    direction: number;
+
     constructor(private jsonService:JsonService) {
       let filterInput = {} as Spell
       filterInput.name = ""

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+// standed angular componet
 
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

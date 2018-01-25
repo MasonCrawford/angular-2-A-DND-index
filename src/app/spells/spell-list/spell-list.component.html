@@ -1,4 +1,4 @@
-<br><br><br>
+<br>
 <!-- <button type="button" (click)="logIt(filter)" name="button"></button>
 <label>emote</label>
 <ul *ngFor="let spell of spells">
@@ -21,34 +21,36 @@
   <!-- <th><input type="text" name="name" [(ngModel)]="filter.name" placeholder="name"></th> -->
   <app-filter-form [(inito)]="filter"></app-filter-form>
   <div class="card">
-    <div class="card-block">
-      <h4 class="card-title">order by</h4>
+    <div class="card-body">
+      <h4 class="card-title">Order by</h4>
       <form action="">
         <div class="row">
           <div class="col">
-            <button class="btn btn-sm" (click)="sort('name')">
+            <button class="btn btn-sm w-100 btn-info" (click)="sort('name')">
               Name
-              <!-- <i class="fa" [ngClass]="{'fa-sort': column != 'CategoryID', 'fa-sort-asc': (column == 'CategoryID' && isDesc), 'fa-sort-desc': (column == 'CategoryID' && !isDesc) }" aria-hidden="true"> </i> -->
+              <!-- add an arrow to the i element where the colem name matches the button name and assending or desending toggles the up or down  -->
+              <i [ngClass]="{'': column != 'name', 'sort-asc': (column == 'name' && isDesc), 'sort-desc': (column == 'name' && !isDesc) }" aria-hidden="true"> </i>
             </button>
           </div>
           <div class="col">
-            <button class="btn btn-sm" (click)="sort('level')">
-              Levle
-              <!-- <i class="fa" [ngClass]="{'fa-sort': column != 'CategoryName', 'fa-sort-asc': (column == 'CategoryName' && isDesc), 'fa-sort-desc': (column == 'CategoryName' && !isDesc) }" aria-hidden="true"> </i> -->
+            <button class="btn btn-sm w-100 btn-info" (click)="sort('level')">
+              level
+              <!-- add an arrow to the i element where the colem name matches the button name and assending or desending toggles the up or down  -->
+              <i [ngClass]="{'': column != 'level', 'sort-asc': (column == 'level' && isDesc), 'sort-desc': (column == 'level' && !isDesc) }" aria-hidden="true"> </i>
             </button>
           </div>
-
-          <!-- <div class="col">
-            <button class="btn btn-sm" (click)="sort('class')">
-              Class
-              <i class="fa" [ngClass]="{'fa-sort': column != 'Description', 'fa-sort-asc': (column == 'Description' && isDesc), 'fa-sort-desc': (column == 'Description' && !isDesc) }" aria-hidden="true"> </i>
-            </button>
-          </div> -->
         </div>
       </form>
     </div>
+    <div class="card-footer">
+    </div>
   </div>
-  <span *ngFor="let spell of spells | spellfilter:filter | orderBy: {property: column, direction: direction}">
+
+  <br><br>
+  <!-- call a for loop that loops over all spels -->
+  <!-- filter is an object of type spell that is used to filter out items that do not contain what is in the filter -->
+  <!-- orderBy is passses a key and a directions assending or decending and orders the for loop to match -->
+  <span *ngFor="let spell of spells | spellFilter:filter | orderBy: {property: column, direction: direction}">
         <app-spell [spell]=spell></app-spell>
-      </span>
+  </span>
 </div>
