@@ -1,0 +1,7 @@
+.sort-asc:before {
+  content: "⬆︎";
+}
+
+.sort-desc:before {
+  content: "⬇︎";
+}

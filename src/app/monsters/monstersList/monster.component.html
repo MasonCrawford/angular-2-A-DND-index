@@ -1,0 +1,51 @@
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Monster List</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th (click)="sort('name')">
+              <button class="btn btn-sm w-100 btn-info" (click)="sort('name')">
+                Name
+                <!-- add an arrow to the i element where the colem name matches the button name and assending or desending toggles the up or down  -->
+                <i [ngClass]="{'': column != 'name', 'sort-asc': (column == 'name' && isDesc), 'sort-desc': (column == 'name' && !isDesc) }" aria-hidden="true"> </i>
+              </button>
+            </th>
+            <th>
+              <button class="btn btn-sm w-100 btn-info" (click)="sort('challenge')">
+                Challenge
+                <!-- add an arrow to the i element where the colem challenge matches the button challenge and assending or desending toggles the up or down  -->
+                <i [ngClass]="{'': column != 'challenge', 'sort-asc': (column == 'challenge' && isDesc), 'sort-desc': (column == 'challenge' && !isDesc) }" aria-hidden="true"> </i>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let monster of monsters | orderBy: {property: column, direction: direction}">
+          <tr>
+            <td>{{monster.name}}</td>
+            <td>{{monster.challenge}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button class="btn btn-sm w-100 btn-info" (click)="sort('name')">
+      Name
+      <!-- add an arrow to the i element where the colem name matches the button name and assending or desending toggles the up or down  -->
+      <i [ngClass]="{'': column != 'name', 'sort-asc': (column == 'name' && isDesc), 'sort-desc': (column == 'name' && !isDesc) }" aria-hidden="true"> </i>
+    </button>
+  </div>
+  <div class="col">
+    <button class="btn btn-sm w-100 btn-info" (click)="sort('level')">
+      level
+      <!-- add an arrow to the i element where the colem name matches the button name and assending or desending toggles the up or down  -->
+      <i [ngClass]="{'': column != 'level', 'sort-asc': (column == 'level' && isDesc), 'sort-desc': (column == 'level' && !isDesc) }" aria-hidden="true"> </i>
+    </button>
+  </div>
+</div>

@@ -20,6 +20,7 @@ import { HomeComponent }        from './home/home.component'
 //  handels loding spell json
 //  filtering, ordering and dispalying spells
 import { SpellsModule }         from './spells/spells.module';
+import { MonstersModule }         from './monsters/monsters.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SpellsModule }         from './spells/spells.module';
     BrowserModule,
     AppRoutingModule,
     SpellsModule,
+    MonstersModule,
     NgbModule.forRoot()
   ],
   providers: [],
