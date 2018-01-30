@@ -16,6 +16,7 @@ import {JsonService} from './json-service.service';
 // import { SpellFilterPipe } from './pipes/spell-filter.pipe';
 // spell list compont for displaying the filtered orderd list of spells
 import { MonsterListComponent } from './monstersList/MonsterList.component';
+import { MonsterComponent } from './monster/monster.component';
 // filter form for creating the filtering object
 // import { FilterFormComponent } from './filter-form/filter-form.component';
 // spell componet for displaing a spell
@@ -39,6 +40,7 @@ import { MonsterRoutingModule } from './monster-routing.module';
   ],
   declarations: [
 MonsterListComponent,
+MonsterComponent,
 OrderrByPipe
 
   ],

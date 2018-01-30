@@ -19,7 +19,10 @@ export class JsonService {
             .do(data => console.log("Monster data imported"))
             .catch(this.handleError);
     }
-
+    monster:Monster
+    getMonster(name: string) {
+      return this.getMonsters().map(data => data.find(monster => monster.name === name))
+    }
     private handleError(error: Response) {
             console.log(error);
             return Observable.throw(error.json().error || 'Internal Server error');
