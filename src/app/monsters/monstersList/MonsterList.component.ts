@@ -50,7 +50,7 @@ export class MonsterListComponent implements OnInit {
     };
 
     openMonsterPage(data){
-      console.log("../Monster/" + data.name)
+      // console.log("../Monster/" + data.name)
       this._router.navigate(["../Monster/" + data.name]);
 
     }
