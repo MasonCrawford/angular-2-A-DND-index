@@ -9,12 +9,12 @@ const routes: Routes = [
   { path: 'spells',
     loadChildren : () => SpellsModule,
     data: {
-    breadcrumb: "spells"
+    breadcrumb: "Spells"
   } },
   { path: 'monster',
     loadChildren : () => MonstersModule,
     data: {
-    breadcrumb: "monster"
+    breadcrumb: "Monster"
   }},
   { path: '', component: HomeComponent }
 ];

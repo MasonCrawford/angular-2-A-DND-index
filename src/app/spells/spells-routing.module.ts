@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SpellListComponent } from './spell-list/spell-list.component';
 
-const routes: Routes = [  { path: '', component: SpellListComponent }
+const routes: Routes = [  { path: '', component: SpellListComponent,
+    data: {breadcrumb: "Spell List"}
+  }
 ];
 
 @NgModule({

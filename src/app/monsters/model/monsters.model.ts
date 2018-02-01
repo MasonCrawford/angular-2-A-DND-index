@@ -24,11 +24,11 @@ export interface Monster {
   regionalEffectsFade?: string | null;
   legendaryPoints?: string | null;
   legendaryActions?: (LegendaryActionsEntity)[] | null;
-  damageImmunities?: string | null;
+  damageImmunities: string | null;
   spells?: string | null;
-  damageResistances?: string | null;
-  conditionImmunities?: string | null;
-  damageVulnerabilities?: string | null;
+  damageResistances: string | null;
+  conditionImmunities: string | null;
+  damageVulnerabilities: string | null;
 }
 export interface ActionsEntityOrTraitsEntity {
   name: string;

@@ -4,8 +4,12 @@ import { MonsterListComponent } from './monstersList/MonsterList.component';
 import { MonsterComponent } from './monster/monster.component';
 
 const routes: Routes = [
-  { path: '', component: MonsterListComponent },
-  { path: 'Monster/:Name', component: MonsterComponent }
+  { path: '', component: MonsterListComponent, data: {
+  breadcrumb: "Monster List"
+}},
+  { path: 'Monster/:Name', component: MonsterComponent,data: {
+  breadcrumb: "Statblock"
+}}
 ];
 
 @NgModule({
