@@ -1,5 +1,6 @@
 <br>
 <div class="container">
+  <monsterFilterForm [(inito)]="filter"> </monsterFilterForm>
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Monster List</h4>
@@ -23,7 +24,7 @@
           </tr>
         </thead>
         <!-- tabel for displaying monster list -->
-        <tbody *ngFor="let monster of monsters | orderBy: {property: column, direction: direction}">
+        <tbody *ngFor="let monster of monsters|monsterFilter:filter | orderBy: {property: column, direction: direction}">
           <tr (click)="openMonsterPage(monster)">
             <td>{{monster.name}}</td>
             <td>{{monster.challenge}}</td>
@@ -32,4 +33,5 @@
       </table>
     </div>
   </div>
+  <br>
 </div>

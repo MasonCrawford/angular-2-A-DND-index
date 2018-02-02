@@ -1,5 +1,4 @@
-import { Component, Input, Output, DoCheck } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component, Input, Output, DoCheck,EventEmitter } from '@angular/core';
 import { Spell,Damage,Save,Heal,Attack } from '../model/spell.model';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/concatMap';

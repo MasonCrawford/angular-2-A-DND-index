@@ -13,12 +13,12 @@ import {JsonService} from './json-service.service';
 // my Components
 // pipes
 // filter pipe
-// import { SpellFilterPipe } from './pipes/spell-filter.pipe';
-// spell list compont for displaying the filtered orderd list of spells
+import { MonsterFilterPipe } from './pipes/monster-filter.pipe';
+// monster list compont for displaying the filtered orderd list of monster
 import { MonsterListComponent } from './monstersList/MonsterList.component';
 import { MonsterComponent } from './monster/monster.component';
 // filter form for creating the filtering object
-// import { FilterFormComponent } from './filter-form/filter-form.component';
+import { monsterFilter } from './monstersList/monsterFilter/monsterFilter.component';
 // spell componet for displaing a spell
 // import { SpellComponent } from './spell/spell.component';
 // spell details component for noting right now
@@ -33,17 +33,21 @@ import { MonsterRoutingModule } from './monster-routing.module';
     CommonModule,
     MonsterRoutingModule,
     NgbModule,
-    HttpModule, FormsModule
+    HttpModule,
+    FormsModule
   ],
   exports:[
     MonsterListComponent
   ],
   declarations: [
-MonsterListComponent,
-MonsterComponent,
-OrderrByPipe
-
+    MonsterListComponent,
+    MonsterComponent,
+    OrderrByPipe,
+    MonsterFilterPipe,
+    monsterFilter
   ],
-  providers:[JsonService]
+  providers:  [
+    JsonService
+  ]
 })
 export class MonstersModule { }

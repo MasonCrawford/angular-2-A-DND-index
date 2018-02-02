@@ -1,0 +1,57 @@
+<br>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Filter Form</h4>
+    <form>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterName">Monster Name</label>
+            <input class="form-control" type="text" id="monsterName" name="monsterName" [(ngModel)]="formFilter.name" placeholder="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterSize">Monster Size</label>
+            <input class="form-control" type="text" id="monsterSize" name="monsterSize" [(ngModel)]="formFilter.size" placeholder="30ft">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterType">Monster Type</label>
+            <input class="form-control" type="text" id="monsterType" name="monsterType" [(ngModel)]="formFilter.type" placeholder="dragon">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterAlignment">Monster Alignment</label>
+            <input class="form-control" type="text" id="monsterAlignment" name="monsterAlignment" [(ngModel)]="formFilter.alignment" placeholder="lawfull good">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterAC">Monster AC</label>
+            <input class="form-control" type="text" id="monsterAC" name="monsterAC" [(ngModel)]="formFilter.AC" placeholder="20">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterHP">Monster HP</label>
+            <input class="form-control" type="text" id="monsterHP" name="monsterHP" [(ngModel)]="formFilter.HP" placeholder="hit point">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="monsterSpeed">Monster Speed</label>
+            <input class="form-control" type="text" id="monsterSpeed" name="monsterSpeed" [(ngModel)]="formFilter.speed" placeholder="speed">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
